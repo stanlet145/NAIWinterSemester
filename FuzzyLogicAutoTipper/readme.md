@@ -1,4 +1,4 @@
-FuzzyLogicAutoTipper is a system based on fuzzy logic algorithm that automatically proposes tip for restaurant service.
+FuzzyLogicAutoTipper is a system based on fuzzy logic algorithm by jFuzzyLogic that automatically proposes tip for restaurant service.
 AutoTipperApplication.class sets configurable record for set of input variables:
 
 1) service - standing for quality of given service in ranges of poor, good, excellent
