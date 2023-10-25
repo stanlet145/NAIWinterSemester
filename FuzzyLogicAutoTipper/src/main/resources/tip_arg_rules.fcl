@@ -33,8 +33,8 @@ END_FUZZIFY
 //Fuzzify input variable 'price' : { 'cheap', 'average', 'expensive' }
 FUZZIFY price
     TERM cheap := (0,0) (25,1) (50,0);
-    TERM average := (50,0) (75,1) (100,0);
-    TERM expensive := (100,0) (125,1) (150,0);
+    TERM average := (40,0) (75,1) (100,0);
+    TERM expensive := (90,0) (125,1) (150,0);
 END_FUZZIFY
 
 // Defzzzify output variable 'tip' : {'cheap', 'average', 'generous' }

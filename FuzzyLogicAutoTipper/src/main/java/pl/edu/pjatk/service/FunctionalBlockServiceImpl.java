@@ -42,7 +42,7 @@ public class FunctionalBlockServiceImpl implements FunctionalBlockService {
      * @param functionBlock function block with given rules
      */
     @Override
-    public void evaluateFunctionalBlock(FunctionBlock functionBlock) {
+    public void evaluateResultByRules(FunctionBlock functionBlock) {
         functionBlock.evaluate();
     }
 }

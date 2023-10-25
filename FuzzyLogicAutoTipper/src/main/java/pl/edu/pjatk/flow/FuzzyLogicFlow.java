@@ -1,10 +1,13 @@
 package pl.edu.pjatk.flow;
 
 import net.sourceforge.jFuzzyLogic.Gpr;
+import net.sourceforge.jFuzzyLogic.rule.Variable;
 import pl.edu.pjatk.fcl.FisService;
 import pl.edu.pjatk.model.FuzzyLogicInputVariables;
 import pl.edu.pjatk.service.FunctionalBlockServiceImpl;
 import pl.edu.pjatk.service.OutputService;
+
+import java.util.function.Consumer;
 
 import static pl.edu.pjatk.service.JFuzzyChartViewer.viewAllRulesByFunctionBlock;
 import static pl.edu.pjatk.service.JFuzzyChartViewer.viewChartForOutputVariable;
@@ -19,19 +22,28 @@ public class FuzzyLogicFlow {
      * @param fuzzyLogicInputVariables input variables of service , food quality and pricing
      */
     public static void startFuzzyLogicEvaluation(FuzzyLogicInputVariables fuzzyLogicInputVariables) {
-        var fisService = new FisService(FCL_FILE_NAME);
         var functionalBlockService = new FunctionalBlockServiceImpl(fuzzyLogicInputVariables);
-        fisService.tryLoadFisFromFclFile()
+
+        new FisService(FCL_FILE_NAME)
+                .tryLoadFisFromFclFile()
                 .flatMap(functionalBlockService::tryGetFunctionalBlock)
                 .andThen(viewAllRulesByFunctionBlock)
                 .andThen(functionalBlockService::setInputVariablesForFuzzyLogic)
-                .andThen(functionalBlockService::evaluateFunctionalBlock)
+                .andThen(functionalBlockService::evaluateResultByRules)
                 .map(OutputService::getOutputVariable)
                 .andThen(viewChartForOutputVariable)
-                .onSuccess($ -> {
-                    Gpr.debug(FLOW_END_MESSAGE);
-                    System.out.println("tip: " + $.getValue());
-                })
-                .onFailure(throwable -> Gpr.warn(throwable.getMessage()));
+                .onSuccess(logSuccessAndPrintTip)
+                .onFailure(logFailure);
     }
+
+    /**
+     * Log flow success and print tip value to console
+     */
+    private static final Consumer<Variable> logSuccessAndPrintTip = tip ->
+    {
+        Gpr.debug(FLOW_END_MESSAGE);
+        System.out.println("tip: " + tip.getValue());
+    };
+
+    private static final Consumer<Throwable> logFailure = throwable -> Gpr.warn(throwable.getMessage());
 }

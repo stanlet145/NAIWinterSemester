@@ -9,5 +9,5 @@ public interface FunctionalBlockService {
 
     void setInputVariablesForFuzzyLogic(FunctionBlock functionBlock);
 
-    void evaluateFunctionalBlock(FunctionBlock functionBlock);
+    void evaluateResultByRules(FunctionBlock functionBlock);
 }
