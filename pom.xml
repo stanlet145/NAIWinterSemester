@@ -5,8 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>pl.edu.pjatk</groupId>
-    <artifactId>Ottello</artifactId>
+    <artifactId>NAIWinterSemester</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>FuzzyLogicAutoTipper</module>
+        <module>OttelloGame</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
