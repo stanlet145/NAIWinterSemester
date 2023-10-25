@@ -16,6 +16,8 @@ import pl.edu.pjatk.model.FuzzyLogicInputVariables;
  * It also contains output variable declaration (a tip, varying from cheap to average to expensive).
  * <p>
  * Entire algorithm works by given block of rules in ruleset block 'No1' defined in this file.
+ * <p>
+ * run instruction: Run application using JVM and add jFuzzyLogic.jar as project library
  */
 public class AutoTipperApplication {
     /**
