@@ -11,7 +11,7 @@ public class MovieRecommenderApplication {
     public static void main(String[] args) {
         SpringApplication.run(MovieRecommenderApplication.class, args);
 
-        new CsvParser().parseCsv(new CsvReader().tryReadCsvFromResources());
+        new CsvParser().tryParseCsv(new CsvReader().tryReadCsvFromResources());
     }
 
 }
