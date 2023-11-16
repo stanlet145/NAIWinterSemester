@@ -17,11 +17,12 @@ public class CsvReader {
     /**
      * Starts csv reading from resources
      */
-    public void readCsvFromResources() {
-        Try.of(() -> ClassLoader.getSystemResource(SYSTEM_RESOURCE_CSV_PATH))
+    public List<String[]> tryReadCsvFromResources() {
+        return Try.of(() -> ClassLoader.getSystemResource(SYSTEM_RESOURCE_CSV_PATH))
                 .map(tryGetUri)
                 .map(Paths::get)
-                .map(this::readAllLines);
+                .map(this::readAllLines)
+                .getOrElseThrow(throwable -> new RuntimeException(throwable));
     }
 
     /**
