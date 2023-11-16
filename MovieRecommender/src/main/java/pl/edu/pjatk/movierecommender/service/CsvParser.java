@@ -52,10 +52,10 @@ public class CsvParser {
     /**
      * checks either rating can be parsed to double, if not returns null
      */
-    private Double getMovieRatingForMovieNameOrNull(String[] strings, int i) {
+    private Float getMovieRatingForMovieNameOrNull(String[] strings, int i) {
         return Option.of(strings[i + 1])
                 .filter(StringUtils::isNotEmpty)
-                .map(Double::parseDouble)
+                .map(Float::parseFloat)
                 .getOrNull();
     }
 
