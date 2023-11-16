@@ -10,3 +10,5 @@ It contains a set of input variables with given mathematical ranges for each of 
 It also contains output variable declaration (a tip, varying from cheap to average to expensive).
 
 Entire algorithm works by given block of rules in ruleset block 'No1' defined in this file.
+
+run instruction: Run application using JVM and add jFuzzyLogic.jar as project library
