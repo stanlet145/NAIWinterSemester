@@ -8,4 +8,5 @@ Evaluation for model based on banknote authentication dataset<br /> using **Deep
 **confusion and evaluation matrix for data pool of 1300 :**
 <img width="1224" alt="image" src="https://github.com/stanlet145/NAIWinterSemester/assets/57921350/82321a8e-5df4-4eb8-8a23-ec9372e7b548">
 
-
+MNIST - Train Neural Network to distinguish animals video example:
+https://youtu.be/0Uv8fVGNeXw
