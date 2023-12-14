@@ -2,6 +2,7 @@ package pl.edu.pjatk;
 
 import pl.edu.pjatk.animals.MNISTAnimalsClassifier;
 import pl.edu.pjatk.banknotes.BanknoteAuthenticationClassifier;
+import pl.edu.pjatk.gender.MNISTGenderClassifier;
 
 public class Main {
     /**
@@ -13,6 +14,7 @@ public class Main {
      */
     public static void main(String[] args) {
         new BanknoteAuthenticationClassifier().classifyData();
-        new MNISTAnimalsClassifier().classifyAnimals();
+//        new MNISTAnimalsClassifier().classifyAnimals();
+        new MNISTGenderClassifier().classifyGender();
     }
 }
