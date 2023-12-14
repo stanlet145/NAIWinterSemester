@@ -1,7 +1,6 @@
 # LAB 5 
-* Classify data from csv, train and test neural network
-* using Deeplearing4j java library
-* author: Stanisław Kibort s12901
+* Classify data from csv, train and test neural network using Deeplearing4j java library*
+* author: Stanisław Kibort s12901*
 Evaluation for model based on banknote authentication dataset using Deeplearing4j library
 confusion oraz evaluation matrix dla puli danych 50 :
 <img width="1211" alt="image" src="https://github.com/stanlet145/NAIWinterSemester/assets/57921350/8ac7991f-2433-412c-b955-31c041817cea">
