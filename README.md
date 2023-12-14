@@ -13,3 +13,10 @@ https://youtu.be/0Uv8fVGNeXw
 
 **MNIST - Gender Classification training: **
 <img width="1453" alt="image" src="https://github.com/stanlet145/NAIWinterSemester/assets/57921350/33e75b99-114d-40d7-9dbd-5dfea3f73456">
+
+Running NeuralNetwork module - 
+Install Java on your computer (JDK 1.8)
+download and build project using Maven.
+After installing required dependencies run it from IDE:
+<img width="555" alt="image" src="https://github.com/stanlet145/NAIWinterSemester/assets/57921350/d570ebd0-0044-489b-9c09-6d55969321a2">
+or package it and run using java -jar (jar_name) to train neural networks
