@@ -18,5 +18,7 @@ Running NeuralNetwork module -
 Install Java on your computer (JDK 1.8)
 download and build project using Maven.
 After installing required dependencies run it from IDE:
+<br />
 <img width="555" alt="image" src="https://github.com/stanlet145/NAIWinterSemester/assets/57921350/d570ebd0-0044-489b-9c09-6d55969321a2">
+<br />
 or package it and run using java -jar (jar_name) to train neural networks
