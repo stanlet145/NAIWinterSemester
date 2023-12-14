@@ -1,4 +1,4 @@
-package pl.edu.pjatk;
+package pl.edu.pjatk.banknotes;
 
 import io.vavr.control.Try;
 import org.datavec.api.records.reader.impl.csv.CSVRecordReader;
@@ -28,10 +28,10 @@ import java.io.File;
  *
  * @author s12901@pjwstk.edu.pl
  */
-public class Classifier {
+public class BanknoteAuthenticationClassifier {
     private static final int NUMBER_OF_LABELS = 2;
     private static final int LABEL_COLUMN_INDEX = 4;
-    private static final int BATCH_SIZE = 50;
+    private static final int BATCH_SIZE = 1300;
     private static final double USE_PERCENTAGE_OF_DATA_FOR_TRAINING_NUMBER = 0.65;
 
 
@@ -46,18 +46,35 @@ public class Classifier {
      * print results in console
      */
     public void classifyData() {
+        /**
+         * train neural network
+         */
         Try<SplitTestAndTrain> splitTestAndTrains = trainNeuralNetworkWithCsvData();
 
+        /**
+         * get training and testing datasets
+         */
         DataSet trainingData = getTrainingData(splitTestAndTrains);
         DataSet testData = getTestingData(splitTestAndTrains);
 
+        /**
+         * normalize data
+         */
         normalizeData(trainingData, testData);
 
+        /**
+         * configure neural network
+         */
         MultiLayerConfiguration conf = neuralNetworkConfiguration();
+        /**
+         * initialize model
+         */
         MultiLayerNetwork model = initializeMultiLayerNetworkModel(conf);
 
+        /**
+         * fit and evaluate model
+         */
         model.fit(trainingData);
-
         evaluateModelOnTestSet(trainingData, model);
     }
 
