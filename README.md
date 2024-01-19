@@ -1,4 +1,17 @@
 # LAB 6
+ * this application will output ALL frames containing
+ * POLISH , RUSSIAN, USA Flags hidden in .mp4 file video
+ * using color analysis in Java with OpenCV
+ * <p>
+ * Using OpenCV Java library. Program will create color masks and
+ * will try to see if certain frame of video contains proper or higher than threshold
+ * amount of pixels matching mask colors
+ * <p>
+ * if it does it will output this frames to /data directory
+ * <p>
+ * * @author s12901 Stanisław Kibort for NAI winter semester 2023/2024
+<img width="1593" alt="image" src="https://github.com/stanlet145/NAIWinterSemester/assets/57921350/f7d2cbfd-6ced-420e-995c-0dbf49e9fb9c">
+
 # LAB 5 
 Classify data from csv, train and test neural network using Deeplearing4j java library<br />
 author: Stanisław Kibort **s12901**<br />
