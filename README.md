@@ -1,3 +1,4 @@
+# LAB 6
 # LAB 5 
 Classify data from csv, train and test neural network using Deeplearing4j java library<br />
 author: Stanisław Kibort **s12901**<br />
