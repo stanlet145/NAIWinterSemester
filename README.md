@@ -1,4 +1,11 @@
 # LAB 7
+ 1) Using conda to setup Gymnasium with Python 3.11 environment for Windows 11 <img width="778" alt="image" src="https://github.com/stanlet145/NAIWinterSemester/assets/57921350/fbc50ebf-7e61-43da-8d5c-a8ab444019af">
+ 2) Coding and testing solution - FrozenLake-v1
+ 3) https://gifyu.com/image/SCKvR
+Solution presentation shows training for FrozenLake is_slippery parameter - false and true, which indicates if robot will randomly slip and change position into random direction.
+It reinforces it to reevaluate which direction to take to get reward.
+algorithm uses QTable as table of values that represent if position/action on table was rewarded or not. The bigger value in table the better.
+After saving training results presentation shows how despite is_slippery parameter being True, robot successfuly makes it into reward into single try
 
 # LAB 6
   this application will output ALL frames containing
