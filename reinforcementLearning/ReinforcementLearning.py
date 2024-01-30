@@ -1,5 +1,6 @@
 import gymnasium as gym
 import numpy as np
+import pickle
 
 S = "4x4"  # map name corresponding with size
 
@@ -12,7 +13,7 @@ S = "4x4"  # map name corresponding with size
     it helps to discover rewards he otherwise would not """
 
 
-def run(episodes, slippery, requestRender):
+def run(episodes, slippery, requestRender, is_training):
     """Initialize the environment.
     map_name: Name of the map that corresponds with its size
     is_slippery: Boolean indicating whether the robot is randomly slipping - making random action:
@@ -20,8 +21,12 @@ def run(episodes, slippery, requestRender):
     render_mode: Rendering mode to see map"""
     env = gym.make('FrozenLake-v1', map_name=S, is_slippery=slippery,
                    render_mode="human" if requestRender else None)
-
-    q = np.zeros((env.observation_space.n, env.action_space.n))  # init 16x4 array
+    if (is_training):
+        q = np.zeros((env.observation_space.n, env.action_space.n))  # init 16x4 array
+    else:
+        f = open('training_dump_file.pkl', 'rb')  # get Q table from file
+        q = pickle.load(f)
+        f.close()
 
     # hyper parameters
     learning_rate_a = 0.9  # alpha of learning rate
@@ -41,13 +46,13 @@ def run(episodes, slippery, requestRender):
         truncated = False  # truncated is true when number of actions exceeds 200
 
         while not truncated and not terminated:
-            if random_number_generator.random() < epsilon:
+            if is_training and random_number_generator.random() < epsilon:
                 action = env.action_space.sample()  # random action
             else:
                 action = np.argmax(q[state, :])  # action based on Q table
             new_state, reward, terminated, truncated, _ = env.step(action)
-
-            """Q-Learning formula that rewards good state-action pair (updates q[state,action]) with every good step made"""
+            if is_training:
+                """Q-Learning formula that rewards good state-action pair (updates q[state,action]) with every good step made"""
             q[state, action] = q[state, action] + learning_rate_a * (
                     reward + learning_discount_g * np.max(q[new_state, :]) - q[state, action]
             )
@@ -61,7 +66,12 @@ def run(episodes, slippery, requestRender):
     env.close()
     print("Number of success rewards gathered: ", success_counter)
 
+    if is_training:
+        f = open("training_dump_file.pkl", "wb")
+        pickle.dump(q, f)
+        f.close()
+
 
 """Main function"""
 if __name__ == "__main__":
-    run(15000, False, False)
+    run(10000, True, True, False)
