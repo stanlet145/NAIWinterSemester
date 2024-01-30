@@ -15,8 +15,9 @@ It reinforces it to reevaluate which direction to take to get reward.
 algorithm uses QTable as table of values that represent if position/action on table was rewarded or not. The bigger value in table the better.
 After saving training results presentation shows how despite is_slippery parameter being True, robot successfuly makes it into reward into single try
 
-Photo for reference : 
+Photo and Gymnasium link for reference : 
 <img width="235" alt="image" src="https://github.com/stanlet145/NAIWinterSemester/assets/57921350/0130cc90-f315-44df-8829-d25be29f5b1c">
+https://gymnasium.farama.org/environments/toy_text/frozen_lake/
 
 # LAB 6
   this application will output ALL frames containing
