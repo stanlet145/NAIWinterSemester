@@ -1,3 +1,5 @@
+# LAB 7
+
 # LAB 6
   this application will output ALL frames containing
   POLISH , RUSSIAN, USA Flags hidden in .mp4 file video
