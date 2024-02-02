@@ -6,7 +6,7 @@ S = "4x4"  # map name corresponding with size
 
 """ author: s12901 , Stanisław Kibort PJATK
     Usage of Reinforcement Learning with Gymnasium: FrozenLake-v1
-    Robot makes action (0-3) and receives reward for successful state
+    Robot (Agent) makes action (0-3) and receives reward for successful state
 
     Code implements epsilon greedy algorithm -  common exploration strategy used in reinforcement learning.
     It balances exploration and exploitation to help agents learn more effectively
@@ -16,7 +16,7 @@ S = "4x4"  # map name corresponding with size
 def run(episodes, slippery, requestRender, is_training):
     """Initialize the environment.
     map_name: Name of the map that corresponds with its size
-    is_slippery: Boolean indicating whether the robot is randomly slipping - making random action:
+    is_slippery: Boolean indicating whether the robot (agent) is randomly slipping - making random action:
     move left(0), down(1), right(2), up(3)
     render_mode: Rendering mode to see map"""
     env = gym.make('FrozenLake-v1', map_name=S, is_slippery=slippery,
@@ -33,8 +33,8 @@ def run(episodes, slippery, requestRender, is_training):
     learning_discount_g = 0.9  # gamma or discount factor
 
     # epsilon greedy algorithm
-    epsilon = 1  # if this factor is 1 then robot will take 100% random action
-    epsilon_decay = 0.0001  # decay rate of epsilon , to make robot take less and less random actions
+    epsilon = 1  # if this factor is 1 then robot (agent) will take 100% random action
+    epsilon_decay = 0.0001  # decay rate of epsilon , to make robot (agent) take less and less random actions
     random_number_generator = np.random.default_rng()
 
     success_counter = 0
@@ -42,7 +42,7 @@ def run(episodes, slippery, requestRender, is_training):
     for i in range(episodes):  # with episodes number of times we want to train
 
         state = env.reset()[0]  # state between 0 and 15 that correspond with tile indexes, for example 0 is top left
-        terminated = False  # terminates when robot falls into the ice hole
+        terminated = False  # terminates when robot (agent) falls into the ice hole
         truncated = False  # truncated is true when number of actions exceeds 200
 
         while not truncated and not terminated:
